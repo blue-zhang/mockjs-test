@@ -29,12 +29,18 @@ let api = () => {
       ['list|' + num]: [
         {
           name: '@cname',
+          created: mock.Random.date(),
           age: mock.Random.integer(18, 26),
           city: '@city',
-          image: mock.Random.image('200x100'),
           constellations: mock.Random.pick(constellations),
           'constellations|1': constellations,
-          email: mock.Random.email()
+          email: mock.Random.email(),
+          user: {
+            "avatar": mock.Random.image('200x100'),
+            "name": mock.Random.cword(0,4) + mock.Random.word(0,4),
+            "isVip": mock.Random.boolean(),
+            "level": mock.Random.natural( 1, 12 )
+          }
         }
       ]
     })

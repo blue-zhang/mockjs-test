@@ -11,8 +11,8 @@
       v-model="num"
     />
     <button @click="submitFn">提交</button>
-    <!--    <pre v-html="JSON.stringify(pageLists[curPage-1], null, 2)"></pre>-->
-    <pre>{{ JSON.stringify(pageLists[curPage - 1], null, 2) }}</pre>
+        <pre v-html="JSON.stringify(pageLists[curPage-1], null, 4)"></pre>
+<!--    <pre>{{ JSON.stringify(pageLists[curPage - 1], null, 2) }}</pre>-->
     <button @click="reducePage">上一页</button>
     <span>{{ curPage }}</span> / <span>{{ page }}</span>
     <button @click="addPage">下一页</button>
