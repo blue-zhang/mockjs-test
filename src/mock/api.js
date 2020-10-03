@@ -15,7 +15,7 @@ let api = () => {
     '双鱼座'
   ]
   // 使用正则表达式匹配url ！！！！
-  mock.mock(/http\:\/\/localhost\:36742\/api\/getUser/, function (opt) {
+  mock.mock(/http\:\/\/localhost\:36742\/lists/, function (opt) {
     // 获取传递过来的参数，传统方法
     // const querystring = require('querystring')
     // const originUrl = opt.url

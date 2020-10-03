@@ -36,7 +36,7 @@ export default {
         alert('分页数不能大于数据条数')
         return
       }
-      axios.get('http://localhost:36742/api/getUser', {
+      axios.get('http://localhost:36742/lists', {
         params: {
           page: this.page,
           num: this.num
