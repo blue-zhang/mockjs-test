@@ -11,8 +11,7 @@
       v-model="num"
     />
     <button @click="submitFn">提交</button>
-        <pre v-html="JSON.stringify(pageLists[curPage-1], null, 4)"></pre>
-<!--    <pre>{{ JSON.stringify(pageLists[curPage - 1], null, 2) }}</pre>-->
+    <pre v-html="JSON.stringify(pageLists[curPage-1], null, 4)"></pre>
     <button @click="reducePage">上一页</button>
     <span>{{ curPage }}</span> / <span>{{ page }}</span>
     <button @click="addPage">下一页</button>
@@ -43,10 +42,10 @@ export default {
         }
       }).then(
         res => {
-          // **只有一个数据时，返回对象; 有多个数据时，返回数组，每一项是对象**
+          // **mockjs在只有一条数据时，返回对象; 有多个数据时，返回数组，每一项是对象**
           let lists = res.data.list.length ? res.data.list : [res.data.list]
+
           let counts = Math.floor(this.num / this.page) >= 1 ? Math.floor(this.num / this.page) : 1
-          // 定义二维数组，不然push会报错
           let pageLists = []
           for (let k = 0; k <= this.page - 1; k++) {
             pageLists[k] = []
@@ -57,7 +56,6 @@ export default {
               pageLists[page - 1].push(lists[i])
             }
           }
-          // this.num / this.page不是整数时，单独对最后一页的数据进行提取
           for (let num = counts * (this.page - 1); num < this.num; num++) {
             pageLists[this.page - 1].push(lists[num])
           }
